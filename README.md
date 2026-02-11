@@ -11,4 +11,6 @@ Este repositorio está destinado a exponer una parte importante del código fuen
 
 - Algunos archivos estarán en inglés siguiendo los estándares para la arquetectura de aplicaciones web.
 
-![licencia](./LICENSE)
+<div align="center">
+<a href="./LICENSE">Licencia</a>|<a href="https://github.com/xscriptor">Autor</a>
+</div>
