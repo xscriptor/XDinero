@@ -12,5 +12,11 @@ Este repositorio está destinado a exponer una parte importante del código fuen
 - Algunos archivos estarán en inglés siguiendo los estándares para la arquetectura de aplicaciones web.
 
 <div align="center">
+Enlaces de descarga
+
+<a href="https://github.com/xscriptor/XDinero/releases/download/anteproyecto/Guia.de.estilos.XDinero.pdf">Guía de estilos</a> | <a href="https://github.com/xscriptor/XDinero/releases/download/anteproyecto/entidad-relacion.png">E.R.</a> | <a href="https://github.com/xscriptor/XDinero/releases/download/anteproyecto/modelo-relacional.png">M.R.</a>
+</div>
+
+<div align="center">
 <a href="./LICENSE">Licencia</a>|<a href="https://github.com/xscriptor">Autor</a>
 </div>
