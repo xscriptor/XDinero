@@ -1,0 +1,10 @@
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar carpeta de subidas pero mantener la estructura
+/uploads/*
+!/uploads/.gitkeep
+
+# Ignorar dependencias de Composer (si se añaden a futuro)
+/vendor/
