@@ -30,6 +30,18 @@ docker-compose up -d --build
         ->README.md #archivo de presentación del repositorio
 ```
 
+## Limpieza y cierre del proyecto:
+
+```bash
+
+## para limpiar por completo:
+docker-compose down -v --rmi all --remove-orphans
+
+## Para cerrar únicamente:
+docker-compose down
+
+```
+
 
 ## **Notas**:
 
