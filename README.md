@@ -53,18 +53,25 @@ docker-compose down
 
 <div align="center">
 Documentación definitiva:
-
+</div>
+<div align="center">
 <a href="https://github.com/xscriptor/XDinero/releases/download/Proyecto-XDinero-Documentaci%C3%B3n/Funcionalidad_detallada.pdf">
 Funcionalidad detallada
 </a>
+</div>
 
-
+<div align="center">
 <a href="https://github.com/xscriptor/XDinero/releases/download/Proyecto-XDinero-Documentaci%C3%B3n/Guia.de.estilos.XDinero.pdf"> Guía de estilos - accesibilidad y usabilidad
 </a>
+</div>
 
+<div align="center">
 <a href="https://github.com/xscriptor/XDinero/releases/download/Proyecto-XDinero-Documentaci%C3%B3n/Proyecto.pdf">
 Proyecto - manual de usuario y sustentación
 </a>
+</div>
+
+<div align="center">
 
 Enlaces de descarga de documentaciones boceto
 
