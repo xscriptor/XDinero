@@ -6,8 +6,25 @@ RUN docker-php-ext-install pdo pdo_mysql
 # Habilitar mod_rewrite para URLs amigables si fuese necesario (opcional pero recomendado)
 RUN a2enmod rewrite
 
-# Copiar el código fuente al contenedor (opcional, si no usamos volúmenes en desarrollo)
-# COPY . /var/www/html/
+# Ajustar permisos de uploads en cada arranque para evitar fallos en subidas
+RUN set -eux; \
+	cat > /usr/local/bin/backend-entrypoint << 'EOF'
+#!/bin/sh
+set -e
 
-# Establecer permisos (opcional)
-# RUN chown -R www-data:www-data /var/www/html
+UPLOADS_DIR="/var/www/html/backend/uploads"
+AVATARS_DIR="$UPLOADS_DIR/avatars"
+
+mkdir -p "$AVATARS_DIR"
+chown -R www-data:www-data "$UPLOADS_DIR"
+
+# Directorios con escritura para el proceso web, ficheros sin bit de ejecución.
+find "$UPLOADS_DIR" -type d -exec chmod 775 {} \;
+find "$UPLOADS_DIR" -type f -exec chmod 664 {} \;
+
+exec apache2-foreground
+EOF
+
+RUN chmod +x /usr/local/bin/backend-entrypoint
+
+CMD ["/usr/local/bin/backend-entrypoint"]

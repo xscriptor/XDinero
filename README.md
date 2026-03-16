@@ -7,6 +7,8 @@ Este repositorio está destinado a exponer una parte importante del código fuen
 
 ## **Notas**:
 
+- Para la gestión de permisos se ha añadido un script dentro del backend en la carpeta de scripts que gestiona los permisos
+
 - Puede que algunas rutas varíen según se requiera en el desarrollo del proyecto, algunos archivos pueden estar en diferentes carpetas e incluso puede que no todos los archivos se suban por cuestiones de seguridad y que sólo se expongan en la defensa del proyecto.
 
 - Algunos archivos estarán en inglés siguiendo los estándares para la arquetectura de aplicaciones web.
