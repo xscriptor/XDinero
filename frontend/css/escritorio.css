@@ -1,0 +1,74 @@
+/* 
+   ESCRITORIO.CSS — XDinero
+   Estilos específicos para pantallas de ordenador/desktop
+   MinWidth: 769px
+    */
+
+/*  UTILIDADES GLOBALES (ESCRITORIO)  */
+.xd-oculto-escritorio {
+    display: none !important;
+}
+
+/*  ENCABEZADO Y NAVEGACIÓN (ESCRITORIO)  */
+.xd-menu-movil {
+    display: none !important;
+}
+
+.xd-boton-menu {
+    display: none !important;
+}
+
+
+/**
+Aquí empiezan los estilos escritorio de Ayuda
+**/
+
+.ayuda-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ayuda-campo-completo {
+    grid-column: span 2;
+}
+
+
+/**
+Aquí empiezan los estilos escritorio de Mis Publicaciones
+**/
+
+.publicaciones-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+/**
+Aquí empiezan los estilos escritorio del Admin
+**/
+
+@media screen and (min-width: 1025px) {
+    .admin-contenedor {
+        max-width: 1320px;
+    }
+
+    .admin-layout {
+        display: grid;
+        grid-template-columns: minmax(220px, 240px) minmax(0, 1fr);
+        gap: var(--espaciado-xl);
+        align-items: start;
+    }
+
+    .admin-aside {
+        display: block;
+        position: sticky;
+        top: calc(64px + var(--espaciado-xl));
+        padding: var(--espaciado-lg) var(--espaciado-md);
+    }
+}
+
+.admin-stats {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.admin-rankings {
+    grid-template-columns: repeat(2, 1fr);
+}

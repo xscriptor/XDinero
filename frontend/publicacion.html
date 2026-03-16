@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalle de publicación — XDinero">
+    <title>Publicación — XDinero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/moviles.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/tablets.css" media="screen and (min-width: 769px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/escritorio.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/grandes.css" media="screen and (min-width: 1440px)">
+</head>
+<body>
+
+    <!--  ENCABEZADO  -->
+    <header class="xd-encabezado">
+        <nav class="xd-nav">
+            <a href="index.html" class="xd-nav-logo">
+                <img src="img/logo.svg" alt="XDinero Logo">
+                <span class="xd-nav-logo-texto">XDinero</span>
+            </a>
+
+            <div class="xd-nav-enlaces">
+                <a href="inicio.html" class="xd-nav-enlace">
+                    <img src="img/inicio.svg" alt="Inicio">
+                    <span>Inicio</span>
+                </a>
+                <a href="mercado.html" class="xd-nav-enlace">
+                    <img src="img/grafico.svg" alt="Mercado">
+                    <span>Mercado</span>
+                </a>
+                <a href="publicaciones.html" class="xd-nav-enlace">
+                    <img src="img/publicaciones.svg" alt="Publicaciones">
+                    <span>Publicaciones</span>
+                </a>
+                <a href="ayuda.html" class="xd-nav-enlace">
+                    <img src="img/ayuda.svg" alt="Ayuda">
+                    <span>Ayuda</span>
+                </a>
+                <a href="admin.html" class="xd-nav-enlace xd-oculto" id="enlace-admin">
+                    <img src="img/ajustes.svg" alt="Admin">
+                    <span>Admin</span>
+                </a>
+            </div>
+
+            <div class="xd-nav-acciones">
+                <button class="xd-boton-tema" id="boton-tema" title="Cambiar tema">
+                    <img src="img/tema.svg" alt="Tema">
+                </button>
+                <div id="nav-acciones"></div>
+                <button class="xd-boton-menu" id="boton-menu" aria-label="Abrir menú">
+                    <img src="img/menu.svg" alt="Menú">
+                </button>
+            </div>
+        </nav>
+
+        <div class="xd-menu-movil" id="menu-movil">
+            <a href="inicio.html" class="xd-nav-enlace">
+                <img src="img/inicio.svg" alt="Inicio">
+                <span>Inicio</span>
+            </a>
+            <a href="mercado.html" class="xd-nav-enlace">
+                <img src="img/grafico.svg" alt="Mercado">
+                <span>Mercado</span>
+            </a>
+            <a href="publicaciones.html" class="xd-nav-enlace">
+                <img src="img/publicaciones.svg" alt="Publicaciones">
+                <span>Publicaciones</span>
+            </a>
+            <a href="ayuda.html" class="xd-nav-enlace">
+                <img src="img/ayuda.svg" alt="Ayuda">
+                <span>Ayuda</span>
+            </a>
+            <button class="xd-boton-tema" id="boton-tema-movil" title="Cambiar tema" style="justify-content: flex-start; width: auto; padding: 0.75rem 1rem; border-radius: 0.5rem; gap: 0.5rem;">
+                <img src="img/tema.svg" alt="Tema">
+                <span style="font-size: 0.95rem; font-weight: 500;">Cambiar tema</span>
+            </button>
+            <div id="menu-movil-acciones"></div>
+        </div>
+    </header>
+
+    <!--  CONTENIDO PRINCIPAL  -->
+    <main class="publicacion-contenedor">
+
+        <div class="publicacion-cabecera-pagina">
+            <h1 class="publicacion-titulo-pagina">Publicación</h1>
+        </div>
+
+        <!-- Cargando -->
+        <div class="publicacion-cargando" id="publicacion-cargando">
+            <div class="xd-cargando-grande"></div>
+            <p>Cargando publicación...</p>
+        </div>
+
+        <!-- Error / No encontrado -->
+        <div class="publicacion-error xd-oculto" id="publicacion-error">
+            <h2>Publicación no encontrada</h2>
+            <p>Es posible que haya sido eliminada o que el enlace sea incorrecto.</p>
+            <a href="inicio.html" class="xd-boton xd-boton-primario">Volver al inicio</a>
+        </div>
+
+        <!-- Contenido de la publicación (se muestra cuando carga) -->
+        <div class="publicacion-detalle xd-oculto" id="publicacion-detalle">
+
+            <!-- Enlace volver -->
+            <a href="inicio.html" class="publicacion-volver">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="20" height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                Volver al inicio
+            </a>
+
+            <!-- Tarjeta de la publicación -->
+            <article class="xd-tarjeta post-tarjeta publicacion-post" id="publicacion-post">
+                <div class="post-cabecera">
+                    <a href="#" class="post-autor" id="publicacion-autor-enlace">
+                        <img src="img/usuario.svg" alt="Avatar" class="xd-avatar post-avatar" id="publicacion-avatar">
+                        <div class="post-autor-info">
+                            <span class="post-autor-nombre" id="publicacion-autor-nombre">Cargando...</span>
+                            <span class="post-fecha" id="publicacion-fecha"></span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="post-cuerpo">
+                    <p class="post-contenido" id="publicacion-texto"></p>
+                    <div class="post-imagen xd-oculto" id="publicacion-imagen-contenedor">
+                        <img src="" alt="Imagen de la publicación" id="publicacion-imagen">
+                    </div>
+                </div>
+
+                <div class="post-acciones">
+                    <button class="post-btn-accion accion-like btn-like" id="btn-like" title="Me gusta">
+                        <img src="img/me-gusta.svg" alt="Me gusta">
+                        <span class="contador" id="contador-likes">0</span>
+                    </button>
+                    <button class="post-btn-accion accion-comentario btn-comentar" id="btn-comentar" title="Comentar">
+                        <img src="img/comentario.svg" alt="Comentar">
+                        <span class="contador" id="contador-comentarios">0</span>
+                    </button>
+                    <button class="post-btn-accion accion-repost btn-repost" id="btn-repost" title="Republicar">
+                        <img src="img/republicar.svg" alt="Republicar">
+                        <span class="contador" id="contador-reposts">0</span>
+                    </button>
+                    <button class="post-btn-accion accion-compartir btn-compartir" id="btn-compartir" title="Compartir">
+                        <img src="img/compartir.svg" alt="Compartir">
+                    </button>
+                </div>
+            </article>
+
+            <!--  SECCIÓN DE COMENTARIOS  -->
+            <section class="publicacion-comentarios" aria-label="Comentarios">
+                <h3 class="publicacion-comentarios-titulo" id="titulo-comentarios">Comentarios (0)</h3>
+
+                <!-- Formulario para nuevo comentario -->
+                <div class="publicacion-nuevo-comentario xd-oculto" id="caja-nuevo-comentario">
+                    <form id="formulario-comentario">
+                        <div class="publicacion-comentario-entrada">
+                            <img src="img/usuario.svg" alt="" class="xd-avatar xd-avatar-pequeno" id="avatar-comentador">
+                            <label for="input-comentario" class="xd-sr-solo">Escribe un comentario</label>
+                            <input type="text" class="xd-entrada" id="input-comentario" placeholder="Escribe un comentario..." maxlength="280" autocomplete="off">
+                            <button type="submit" class="xd-boton xd-boton-primario xd-texto-pequeno" id="btn-enviar-comentario" disabled>Enviar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Lista de comentarios -->
+                <div id="lista-comentarios">
+                    <!-- Se genera dinámicamente -->
+                </div>
+
+                <!-- Sin comentarios -->
+                <div class="publicacion-sin-comentarios xd-oculto" id="sin-comentarios">
+                    <p>No hay comentarios aún. ¡Sé el primero en comentar!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!--  TOAST  -->
+    <div class="xd-toast-contenedor" id="toast-contenedor"></div>
+
+    <!--  FOOTER  -->
+    <footer class="xd-footer">
+        <p class="xd-footer-linea"><a href="https://github.com/xscriptor/XDinero" target="_blank" rel="noopener noreferrer">Desarrollo de aplicaciones web 2026</a></p>
+        <p><a href="https://www.github.com/xscriptor" target="_blank" rel="noopener noreferrer">Oscar Preciado (xscriptor)</a></p>
+    </footer>
+
+    <!--  SCRIPTS  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javascript/configuracion.js"></script>
+    <script src="javascript/modelos.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script src="javascript/validaciones.js"></script>
+    <script src="javascript/servicios/ajax/interaccion.js"></script>
+    <script src="javascript/aplicacion.js"></script>
+    <script src="javascript/publicacion.js"></script>
+</body>
+</html>

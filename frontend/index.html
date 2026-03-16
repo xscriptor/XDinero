@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Feed principal de XDinero — Red social financiera">
+    <title>Inicio — XDinero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <!-- CSS Responsive -->
+    <link rel="stylesheet" href="css/moviles.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/tablets.css" media="screen and (min-width: 769px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/escritorio.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/grandes.css" media="screen and (min-width: 1440px)">
+</head>
+<body>
+
+    <!--  ENCABEZADO  -->
+    <header class="xd-encabezado">
+        <nav class="xd-nav">
+            <a href="index.html" class="xd-nav-logo">
+                <img src="img/logo.svg" alt="XDinero Logo">
+                <span class="xd-nav-logo-texto">XDinero</span>
+            </a>
+
+            <div class="xd-nav-enlaces">
+                <a href="inicio.html" class="xd-nav-enlace activo">
+                    <img src="img/inicio.svg" alt="Inicio">
+                    <span>Inicio</span>
+                </a>
+                <a href="mercado.html" class="xd-nav-enlace">
+                    <img src="img/grafico.svg" alt="Mercado">
+                    <span>Mercado</span>
+                </a>
+                <a href="publicaciones.html" class="xd-nav-enlace">
+                    <img src="img/publicaciones.svg" alt="Publicaciones">
+                    <span>Publicaciones</span>
+                </a>
+                <a href="ayuda.html" class="xd-nav-enlace">
+                    <img src="img/ayuda.svg" alt="Ayuda">
+                    <span>Ayuda</span>
+                </a>
+                <a href="admin.html" class="xd-nav-enlace xd-oculto" id="enlace-admin">
+                    <img src="img/ajustes.svg" alt="Admin">
+                    <span>Admin</span>
+                </a>
+            </div>
+
+            <div class="xd-nav-acciones">
+                <button class="xd-boton-tema" id="boton-tema" title="Cambiar tema">
+                    <img src="img/tema.svg" alt="Tema">
+                </button>
+                <div id="nav-acciones">
+                    <!-- Se inyecta info de usuario (Aplicacion.js) -->
+                </div>
+                <button class="xd-boton-menu" id="boton-menu" aria-label="Abrir menú">
+                    <img src="img/menu.svg" alt="Menú">
+                </button>
+            </div>
+        </nav>
+
+        <div class="xd-menu-movil" id="menu-movil">
+            <a href="inicio.html" class="xd-nav-enlace activo">
+                <img src="img/inicio.svg" alt="Inicio">
+                <span>Inicio</span>
+            </a>
+            <a href="mercado.html" class="xd-nav-enlace">
+                <img src="img/grafico.svg" alt="Mercado">
+                <span>Mercado</span>
+            </a>
+            <a href="publicaciones.html" class="xd-nav-enlace">
+                <img src="img/publicaciones.svg" alt="Publicaciones">
+                <span>Publicaciones</span>
+            </a>
+            <a href="ayuda.html" class="xd-nav-enlace">
+                <img src="img/ayuda.svg" alt="Ayuda">
+                <span>Ayuda</span>
+            </a>
+            <button class="xd-boton-tema" id="boton-tema-movil" title="Cambiar tema" style="justify-content: flex-start; width: auto; padding: 0.75rem 1rem; border-radius: 0.5rem; gap: 0.5rem;">
+                <img src="img/tema.svg" alt="Tema">
+                <span style="font-size: 0.95rem; font-weight: 500;">Cambiar tema</span>
+            </button>
+            <div id="menu-movil-acciones"></div>
+        </div>
+    </header>
+
+    <!--  CONTENIDO PRINCIPAL (LANDING)  -->
+    <main class="landing-contenedor">
+        <section class="landing-hero">
+            <div class="landing-textos">
+                <h1 class="landing-titulo">Convierte tus ideas financieras en comunidad</h1>
+                <p class="landing-subtitulo">Únete a XDinero, la red social para entusiastas de la economía, criptomonedas y finanzas personales. Comparte tus inversiones, debate el mercado y aprende junto a miles de usuarios.</p>
+                <div class="landing-botones">
+                    <a href="registro.html" class="xd-boton xd-boton-primario" aria-label="Crear cuenta gratis — registro de nuevo usuario">Crear cuenta gratis</a>
+                    <a href="iniciar-sesion.html" class="xd-boton xd-boton-secundario">Ya tengo cuenta</a>
+                </div>
+            </div>
+            <div class="landing-grafico">
+                <div class="landing-hero-icono" aria-hidden="true">
+                    <img src="img/grafico.svg" alt="" class="landing-icono-principal">
+                    <img src="img/logo.svg" alt="" class="landing-icono-logo">
+                </div>
+            </div>
+        </section>
+        <!-- === SECCIÓN: CARACTERÍSTICAS PRINCIPALES === -->
+        <section class="landing-features">
+            <h2 class="landing-seccion-titulo">Todo lo que necesitas en un solo lugar</h2>
+            <div class="feature-tarjeta">
+                <img src="img/comentario.svg" alt="">
+                <h3>Conecta y Comparte</h3>
+                <p>Publica tus balances, interactúa con otros inversores y crea tu red de contactos en el mundo financiero.</p>
+            </div>
+            <div class="feature-tarjeta">
+                <img src="img/grafico.svg" alt="">
+                <h3>Mercado en Tiempo Real</h3>
+                <p>Sigue las cotizaciones de las principales criptomonedas y obtén gráficos detallados sin salir de la app.</p>
+            </div>
+            <div class="feature-tarjeta">
+                <img src="img/ajustes.svg" alt="">
+                <h3>Tu Perfil, Tus Reglas</h3>
+                <p>Personaliza tu espacio, administra tus seguidores y mantén el control total de tu información.</p>
+            </div>
+        </section>
+
+        <!-- === SECCIÓN: CÓMO FUNCIONA === -->
+        <section class="landing-como-funciona">
+            <h2 class="landing-seccion-titulo">¿Cómo funciona?</h2>
+            <div class="landing-pasos">
+                <div class="landing-paso">
+                    <div class="landing-paso-icono" aria-hidden="true">
+                        <img src="img/usuario.svg" alt="">
+                        <span class="landing-paso-numero">1</span>
+                    </div>
+                    <h3>Crea tu cuenta</h3>
+                    <p>Regístrate en segundos y personaliza tu perfil con tu avatar e información financiera.</p>
+                </div>
+                <div class="landing-paso">
+                    <div class="landing-paso-icono" aria-hidden="true">
+                        <img src="img/publicaciones.svg" alt="">
+                        <span class="landing-paso-numero">2</span>
+                    </div>
+                    <h3>Publica y opina</h3>
+                    <p>Comparte tus análisis, ideas de inversión o preguntas con la comunidad.</p>
+                </div>
+                <div class="landing-paso">
+                    <div class="landing-paso-icono" aria-hidden="true">
+                        <img src="img/me-gusta.svg" alt="">
+                        <span class="landing-paso-numero">3</span>
+                    </div>
+                    <h3>Conecta y crece</h3>
+                    <p>Recibe likes, comentarios y haz crecer tu red de contactos financieros.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECCIÓN: ESTADÍSTICAS === -->
+        <section class="landing-stats">
+            <div class="landing-stat">
+                <img src="img/inicio.svg" alt="" aria-hidden="true">
+                <span class="landing-stat-numero">100%</span>
+                <span class="landing-stat-etiqueta">Código abierto</span>
+            </div>
+            <div class="landing-stat">
+                <img src="img/compartir.svg" alt="" aria-hidden="true">
+                <span class="landing-stat-numero">24/7</span>
+                <span class="landing-stat-etiqueta">Datos de mercado</span>
+            </div>
+            <div class="landing-stat">
+                <img src="img/me-gusta.svg" alt="" aria-hidden="true">
+                <span class="landing-stat-numero">0 €</span>
+                <span class="landing-stat-etiqueta">Completamente gratis</span>
+            </div>
+        </section>
+
+        <!-- === SECCIÓN: CTA FINAL === -->
+        <section class="landing-cta">
+            <img src="img/logo.svg" alt="" class="landing-cta-logo" aria-hidden="true">
+            <h2>¿Listo para unirte?</h2>
+            <p>Empieza hoy mismo a formar parte de la comunidad financiera más abierta y transparente.</p>
+            <a href="inicio.html" class="xd-boton xd-boton-primario">Echa un vistazo</a>
+        </section>
+    </main>
+
+    <!--  FOOTER  -->
+    <footer class="xd-footer">
+        <p class="xd-footer-linea"><a href="https://github.com/xscriptor/XDinero" target="_blank" rel="noopener noreferrer">Desarrollo de aplicaciones web 2026</a></p>
+        <p><a href="https://www.github.com/xscriptor" target="_blank" rel="noopener noreferrer">Oscar Preciado (xscriptor)</a></p>
+    </footer>
+
+    <!--  SCRIPTS  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javascript/configuracion.js"></script>
+    <script src="javascript/modelos.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script src="javascript/aplicacion.js"></script>
+    <script>
+        // Redirigir al feed si el usuario ya está autenticado
+        document.addEventListener('DOMContentLoaded', () => {
+            if (Aplicacion.usuario) {
+                window.location.href = 'inicio.html';
+            }
+        });
+    </script>
+
+</body>
+</html>

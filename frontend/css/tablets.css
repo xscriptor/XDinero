@@ -1,0 +1,85 @@
+/* 
+   TABLETS.CSS — XDinero
+   Estilos específicos para tablets
+   MinWidth: 769px and MaxWidth: 1024px
+    */
+
+/* Reservado para ajustes específicos de tablet que difieran de móvil o escritorio */
+
+/* Por ejemplo, márgenes ligeramente reducidos en la cuadrícula de publicaciones */
+.xd-grid {
+    gap: var(--espaciado-md);
+}
+
+
+/**
+Aquí empiezan los estilos tablet de la Landing
+**/
+
+.landing-features {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.landing-pasos {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+/**
+Aquí empiezan los estilos tablet del Mercado
+**/
+
+.mercado-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+/**
+Aquí empiezan los estilos tablet de Ayuda
+**/
+
+.ayuda-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ayuda-campo-completo {
+    grid-column: span 2;
+}
+
+
+/**
+Aquí empiezan los estilos tablet de Mis Publicaciones
+**/
+
+.publicaciones-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+/**
+Aquí empiezan los estilos tablet del Admin
+**/
+
+.admin-stats {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.admin-rankings {
+    grid-template-columns: 1fr;
+}
+
+@media screen and (orientation: landscape) {
+    .admin-layout {
+        display: grid;
+        grid-template-columns: minmax(200px, 220px) minmax(0, 1fr);
+        gap: var(--espaciado-lg);
+        align-items: start;
+    }
+
+    .admin-aside {
+        display: block;
+        position: sticky;
+        top: calc(64px + var(--espaciado-lg));
+        padding: var(--espaciado-lg) var(--espaciado-md);
+    }
+}

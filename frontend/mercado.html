@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mercado de criptomonedas en tiempo real — XDinero">
+    <title>Mercado — XDinero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/moviles.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/tablets.css" media="screen and (min-width: 769px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/escritorio.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/grandes.css" media="screen and (min-width: 1440px)">
+</head>
+<body>
+
+    <!--  ENCABEZADO  -->
+    <header class="xd-encabezado">
+        <nav class="xd-nav">
+            <div class="xd-nav-logo">
+                <img src="img/logo.svg" alt="">
+                <span class="xd-nav-logo-texto">XDinero</span>
+            </div>
+            <div class="xd-nav-enlaces">
+                <a href="inicio.html" class="xd-nav-enlace"><img src="img/inicio.svg" alt=""><span>Inicio</span></a>
+                <a href="mercado.html" class="xd-nav-enlace activo"><img src="img/grafico.svg" alt=""><span>Mercado</span></a>
+                <a href="publicaciones.html" class="xd-nav-enlace"><img src="img/publicaciones.svg" alt=""><span>Publicaciones</span></a>
+                <a href="ayuda.html" class="xd-nav-enlace"><img src="img/ayuda.svg" alt=""><span>Ayuda</span></a>
+                <a href="admin.html" class="xd-nav-enlace xd-oculto" id="enlace-admin"><img src="img/ajustes.svg" alt=""><span>Admin</span></a>
+            </div>
+            <div class="xd-nav-acciones">
+                <button class="xd-boton-tema" id="boton-tema" title="Cambiar tema"><img src="img/tema.svg" alt=""></button>
+                <div id="nav-acciones"></div>
+                <button class="xd-boton-menu" id="boton-menu" aria-label="Abrir menú"><img src="img/menu.svg" alt="Menú"></button>
+            </div>
+        </nav>
+        <div class="xd-menu-movil" id="menu-movil">
+            <a href="inicio.html" class="xd-nav-enlace"><img src="img/inicio.svg" alt=""><span>Inicio</span></a>
+            <a href="mercado.html" class="xd-nav-enlace activo"><img src="img/grafico.svg" alt=""><span>Mercado</span></a>
+            <a href="publicaciones.html" class="xd-nav-enlace"><img src="img/publicaciones.svg" alt=""><span>Publicaciones</span></a>
+            <a href="ayuda.html" class="xd-nav-enlace"><img src="img/ayuda.svg" alt=""><span>Ayuda</span></a>
+            <button class="xd-boton-tema" id="boton-tema-movil" title="Cambiar tema" style="justify-content: flex-start; width: auto; padding: 0.75rem 1rem; border-radius: 0.5rem; gap: 0.5rem;">
+                <img src="img/tema.svg" alt=""><span style="font-size: 0.95rem; font-weight: 500;">Cambiar tema</span>
+            </button>
+            <div id="menu-movil-acciones"></div>
+        </div>
+    </header>
+
+    <!--  CONTENIDO PRINCIPAL  -->
+    <main class="mercado-contenedor">
+        <div class="mercado-cabecera">
+            <h1 class="mercado-titulo">Mercado Cripto</h1>
+            <p class="mercado-subtitulo">Datos en tiempo real vía <strong>CoinGecko API</strong>. Actualización automática cada 60s.</p>
+        </div>
+
+        <!-- Buscador -->
+        <div class="mercado-buscador">
+            <input type="text" id="busqueda-moneda" class="xd-entrada" placeholder="Buscar criptomoneda por nombre o símbolo..." aria-label="Buscar criptomoneda">
+        </div>
+
+        <!-- Estado cargando -->
+        <div id="mercado-cargando" class="xd-cargando-contenedor">
+            <div class="xd-cargando xd-cargando-grande"></div>
+            <p style="margin-top: 1rem; opacity: 0.6;">Cargando datos del mercado...</p>
+        </div>
+
+        <!-- Grid de monedas -->
+        <div id="mercado-grid" class="mercado-grid xd-oculto"></div>
+
+        <!-- Estado vacío -->
+        <div id="mercado-vacio" class="feed-vacio xd-oculto">
+            <p>No se encontraron criptomonedas con ese filtro.</p>
+        </div>
+    </main>
+
+    <!--  MODAL DETALLE MONEDA  -->
+    <div class="xd-modal-overlay xd-oculto" id="modal-moneda">
+        <div class="xd-modal" style="max-width: 560px;">
+            <div class="mercado-modal-cabecera">
+                <div class="mercado-modal-info">
+                    <img src="" alt="" id="modal-moneda-img" class="mercado-modal-icono">
+                    <div>
+                        <h3 class="xd-modal-titulo" id="modal-moneda-nombre">Bitcoin</h3>
+                        <span class="xd-texto-secundario" id="modal-moneda-simbolo">BTC</span>
+                    </div>
+                </div>
+                <div class="mercado-modal-acciones">
+                    <!-- Botón para añadir/quitar de la lista de seguimiento -->
+                    <button class="xd-boton xd-boton-primario mercado-btn-seguimiento xd-oculto" id="btn-seguimiento-moneda" aria-label="Añadir a la lista de seguimiento" title="Añadir a la lista de seguimiento">
+                        <img src="img/estrella.svg" alt="" class="mercado-icono-estrella-btn"> Seguir
+                    </button>
+                    <button class="xd-boton xd-boton-fantasma" id="btn-cerrar-modal-moneda" aria-label="Cerrar modal">✕</button>
+                </div>
+            </div>
+
+            <!-- Gráfico Chart.js -->
+            <div class="mercado-modal-grafico">
+                <canvas id="grafico-moneda" height="200" role="img" aria-label="Gráfico de precios"></canvas>
+            </div>
+
+            <!-- Detalles -->
+            <div class="mercado-modal-detalles">
+                <div class="mercado-detalle-fila">
+                    <span>Precio actual</span>
+                    <span id="modal-precio" class="xd-negrita">$0</span>
+                </div>
+                <div class="mercado-detalle-fila">
+                    <span>Cambio 24h</span>
+                    <span id="modal-cambio24h">0%</span>
+                </div>
+                <div class="mercado-detalle-fila">
+                    <span>Cap. de mercado</span>
+                    <span id="modal-cap-mercado">$0</span>
+                </div>
+                <div class="mercado-detalle-fila">
+                    <span>Volumen 24h</span>
+                    <span id="modal-volumen">$0</span>
+                </div>
+                <div class="mercado-detalle-fila">
+                    <span>Máximo 24h</span>
+                    <span id="modal-max24h">$0</span>
+                </div>
+                <div class="mercado-detalle-fila">
+                    <span>Mínimo 24h</span>
+                    <span id="modal-min24h">$0</span>
+                </div>
+                <div class="mercado-detalle-fila">
+                    <span>ATH (Máximo histórico)</span>
+                    <span id="modal-ath">$0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  FOOTER  -->
+    <footer class="xd-footer">
+        <p class="xd-footer-linea"><a href="https://github.com/xscriptor/XDinero" target="_blank" rel="noopener noreferrer">Desarrollo de aplicaciones web 2026</a></p>
+        <p><a href="https://www.github.com/xscriptor" target="_blank" rel="noopener noreferrer">Oscar Preciado (xscriptor)</a></p>
+    </footer>
+
+    <!--  SCRIPTS  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javascript/configuracion.js"></script>
+    <script src="javascript/modelos.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script src="javascript/servicios/ajax/coingecko.js"></script>
+    <script src="javascript/servicios/ajax/perfil.js"></script>
+    <script src="javascript/aplicacion.js"></script>
+    <script src="javascript/mercado.js"></script>
+</body>
+</html>

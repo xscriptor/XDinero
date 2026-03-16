@@ -1,0 +1,246 @@
+/* 
+   MOVILES.CSS — XDinero
+   Estilos específicos para teléfonos móviles
+   MaxWidth: 768px
+    */
+
+/*  UTILIDADES GLOBALES (MÓVIL)  */
+.xd-contenedor {
+    padding: 0 var(--espaciado-sm);
+}
+
+.xd-oculto-movil {
+    display: none !important;
+}
+
+/*  ENCABEZADO Y NAVEGACIÓN (MÓVIL)  */
+.xd-nav-enlaces {
+    display: none;
+}
+
+.xd-nav-usuario-nombre {
+    display: none;
+}
+
+#nav-acciones,
+.xd-nav-acciones > .xd-boton-tema {
+    display: none !important;
+}
+
+.xd-boton-menu {
+    display: flex;
+}
+
+/*  AUTENTICACIÓN (MÓVIL)  */
+.autenticacion-contenedor {
+    padding: var(--espaciado-md) var(--espaciado-sm);
+    align-items: flex-start;
+    padding-top: var(--espaciado-xl);
+}
+
+.autenticacion-tarjeta {
+    padding: var(--espaciado-lg) var(--espaciado-md);
+}
+
+.autenticacion-titulo {
+    font-size: 1.5rem;
+}
+
+/*  COMPONENTES GLOBALES (MÓVIL)  */
+#contenedor-toast {
+    top: auto;
+    bottom: var(--espaciado-md);
+    right: var(--espaciado-sm);
+    left: var(--espaciado-sm);
+    align-items: center;
+}
+
+.xd-toast {
+    max-width: 100%;
+}
+
+.xd-modal {
+    margin: var(--espaciado-sm);
+    padding: var(--espaciado-lg);
+}
+
+.xd-modal-acciones {
+    flex-direction: column-reverse;
+}
+
+.xd-modal-acciones .xd-boton {
+    width: 100%;
+}
+
+/*  PÁGINA PERFIL - Maquetación Flex/Grid  */
+/*  RESPONSIVE  */
+@media (max-width: 480px) {
+    .perfil-avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+    .perfil-nombre {
+        font-size: 1.5rem;
+    }
+
+    .perfil-stats {
+        gap: var(--espaciado-md);
+    }
+}
+
+
+/**
+Aquí empiezan los estilos móviles de la Landing
+**/
+
+.landing-hero {
+    flex-direction: column;
+    text-align: center;
+}
+
+.landing-titulo {
+    font-size: 1.75rem;
+}
+
+.landing-botones {
+    justify-content: center;
+}
+
+.landing-grafico {
+    display: none;
+}
+
+.landing-features {
+    grid-template-columns: 1fr;
+}
+
+.landing-pasos {
+    grid-template-columns: 1fr;
+}
+
+.landing-seccion-titulo {
+    font-size: 1.5rem;
+}
+
+.landing-stats {
+    flex-direction: column;
+    gap: var(--espaciado-lg);
+    align-items: center;
+}
+
+.landing-cta h2 {
+    font-size: 1.4rem;
+}
+
+
+/**
+Aquí empiezan los estilos móviles del Admin
+**/
+
+.admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.admin-rankings {
+    grid-template-columns: 1fr;
+}
+
+.admin-layout {
+    display: block;
+}
+
+.admin-aside {
+    display: none !important;
+}
+
+.admin-crud-tabs {
+    overflow-x: auto;
+}
+
+.admin-seccion-cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.admin-tabla {
+    font-size: 0.8rem;
+}
+
+.admin-tabla th,
+.admin-tabla td {
+    padding: var(--espaciado-xs) var(--espaciado-sm);
+}
+
+.admin-contenido-celda {
+    max-width: 150px;
+}
+
+.admin-acciones-celda {
+    flex-direction: column;
+}
+
+
+/**
+Aquí empiezan los estilos móviles del Mercado
+**/
+
+.mercado-grid {
+    grid-template-columns: 1fr;
+}
+
+.mercado-modal-contenido {
+    padding: var(--espaciado-md);
+}
+
+.mercado-modal-stats {
+    grid-template-columns: 1fr;
+}
+
+
+/**
+Aquí empiezan los estilos móviles de Ayuda
+**/
+
+.ayuda-form-grid {
+    grid-template-columns: 1fr;
+}
+
+.ayuda-contacto {
+    padding: var(--espaciado-md);
+}
+
+
+/**
+Aquí empiezan los estilos móviles de Publicación (detalle)
+**/
+
+.publicacion-comentario-entrada {
+    flex-wrap: wrap;
+}
+
+.publicacion-comentario-entrada .xd-avatar {
+    display: none;
+}
+
+.publicacion-comentario-entrada .xd-input {
+    flex: 1 1 100%;
+}
+
+.publicacion-comentario-entrada .xd-boton {
+    width: 100%;
+}
+
+
+/**
+Aquí empiezan los estilos móviles de Mis Publicaciones
+**/
+
+.publicaciones-grid {
+    grid-template-columns: 1fr;
+}
+
+.publicaciones-contenedor {
+    padding-left: var(--espaciado-sm);
+    padding-right: var(--espaciado-sm);
+}

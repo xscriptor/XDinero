@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inicia sesión en XDinero — Red social financiera">
+    <title>Iniciar Sesión — XDinero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+
+    <!-- CSS -->
+    <!-- Estilos generales (colores, fuentes, maquetación base) -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <!-- Estilos específicos por tamaño de pantalla -->
+    <!-- Móviles (hasta 768px) -->
+    <link rel="stylesheet" href="css/moviles.css" media="screen and (max-width: 768px)">
+    <!-- Tablets (de 769px a 1024px) -->
+    <link rel="stylesheet" href="css/tablets.css" media="screen and (min-width: 769px) and (max-width: 1024px)">
+    <!-- Escritorio estándar (desde 769px) -->
+    <link rel="stylesheet" href="css/escritorio.css" media="screen and (min-width: 769px)">
+    <!-- Pantallas grandes (desde 1440px) -->
+    <link rel="stylesheet" href="css/grandes.css" media="screen and (min-width: 1440px)">
+</head>
+<body>
+
+    <!--  ENCABEZADO  -->
+    <header class="xd-encabezado">
+        <nav class="xd-nav">
+            <a href="index.html" class="xd-nav-logo">
+                <img src="img/logo.svg" alt="XDinero Logo">
+                <span class="xd-nav-logo-texto">XDinero</span>
+            </a>
+
+            <div class="xd-nav-enlaces">
+                <a href="inicio.html" class="xd-nav-enlace">
+                    <img src="img/inicio.svg" alt="Inicio">
+                    <span>Inicio</span>
+                </a>
+                <a href="mercado.html" class="xd-nav-enlace">
+                    <img src="img/grafico.svg" alt="Mercado">
+                    <span>Mercado</span>
+                </a>
+                <a href="publicaciones.html" class="xd-nav-enlace">
+                    <img src="img/publicaciones.svg" alt="Publicaciones">
+                    <span>Publicaciones</span>
+                </a>
+                <a href="ayuda.html" class="xd-nav-enlace">
+                    <img src="img/ayuda.svg" alt="Ayuda">
+                    <span>Ayuda</span>
+                </a>
+                <a href="admin.html" class="xd-nav-enlace xd-oculto" id="enlace-admin">
+                    <img src="img/ajustes.svg" alt="Admin">
+                    <span>Admin</span>
+                </a>
+            </div>
+
+            <div class="xd-nav-acciones">
+                <button class="xd-boton-tema" id="boton-tema" title="Cambiar tema">
+                    <img src="img/tema.svg" alt="Tema">
+                </button>
+                <div id="nav-acciones">
+                    <!-- Inyectado por aplicacion.js -->
+                </div>
+                <button class="xd-boton-menu" id="boton-menu" aria-label="Abrir menú">
+                    <img src="img/menu.svg" alt="Menú">
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú mobile -->
+        <div class="xd-menu-movil" id="menu-movil">
+            <a href="inicio.html" class="xd-nav-enlace">
+                <img src="img/inicio.svg" alt="Inicio">
+                <span>Inicio</span>
+            </a>
+            <a href="mercado.html" class="xd-nav-enlace">
+                <img src="img/grafico.svg" alt="Mercado">
+                <span>Mercado</span>
+            </a>
+            <a href="publicaciones.html" class="xd-nav-enlace">
+                <img src="img/publicaciones.svg" alt="Publicaciones">
+                <span>Publicaciones</span>
+            </a>
+            <a href="ayuda.html" class="xd-nav-enlace">
+                <img src="img/ayuda.svg" alt="Ayuda">
+                <span>Ayuda</span>
+            </a>
+            <button class="xd-boton-tema" id="boton-tema-movil" title="Cambiar tema" style="justify-content: flex-start; width: auto; padding: 0.75rem 1rem; border-radius: 0.5rem; gap: 0.5rem;">
+                <img src="img/tema.svg" alt="Tema">
+                <span style="font-size: 0.95rem; font-weight: 500;">Cambiar tema</span>
+            </button>
+            <div id="menu-movil-acciones">
+                <!-- Inyectado por aplicacion.js -->
+            </div>
+        </div>
+    </header>
+
+    <!--  CONTENIDO PRINCIPAL  -->
+    <main class="autenticacion-contenedor">
+        <div class="xd-tarjeta autenticacion-tarjeta xd-animar-aparecer">
+            <div class="autenticacion-logo">
+                <img src="img/logo.svg" alt="XDinero">
+            </div>
+            <h1 class="autenticacion-titulo">Iniciar Sesión</h1>
+
+            <form id="formulario-login" class="autenticacion-formulario" novalidate>
+                <div class="autenticacion-campo">
+                    <label for="correo" class="xd-etiqueta">Correo Electrónico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        class="xd-entrada"
+                        placeholder="usuario@dominio.com"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="autenticacion-campo">
+                    <label for="contrasena" class="xd-etiqueta">Contraseña</label>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        class="xd-entrada"
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <button type="submit" class="xd-boton xd-boton-primario xd-boton-completo autenticacion-boton" id="boton-login">
+                    Entrar
+                </button>
+            </form>
+
+            <p class="autenticacion-pie">
+                ¿No tienes cuenta? <a href="registro.html">Regístrate</a>
+            </p>
+        </div>
+    </main>
+
+    <!--  FOOTER  -->
+    <footer class="xd-footer">
+        <p class="xd-footer-linea"><a href="https://github.com/xscriptor/XDinero" target="_blank" rel="noopener noreferrer">Desarrollo de aplicaciones web 2026</a></p>
+        <p><a href="https://www.github.com/xscriptor" target="_blank" rel="noopener noreferrer">Oscar Preciado (xscriptor)</a></p>
+    </footer>
+
+    <!--  SCRIPTS  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javascript/configuracion.js"></script>
+    <script src="javascript/modelos.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script src="javascript/validaciones.js"></script>
+    <script src="javascript/servicios/ajax/autenticacion.js"></script>
+    <script src="javascript/aplicacion.js"></script>
+    <script src="javascript/autenticacion.js"></script>
+
+</body>
+</html>

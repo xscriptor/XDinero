@@ -1,0 +1,43 @@
+<svg
+  width="256"
+  height="256"
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+>
+
+  <!-- Marco institucional -->
+  <rect
+    x="32"
+    y="32"
+    width="192"
+    height="192"
+    rx="24"
+    stroke="#0EA5E9"
+    stroke-width="2"
+  />
+
+  <!-- Líneas financieras (balance / activos) -->
+  <line x1="92" y1="176" x2="92" y2="148"
+        stroke="#0D9488" stroke-width="4" stroke-linecap="round"/>
+  <line x1="128" y1="176" x2="128" y2="120"
+        stroke="#0EA5E9" stroke-width="4" stroke-linecap="round"/>
+  <line x1="164" y1="176" x2="164" y2="156"
+        stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- XD tipografía institucional (menos redondeada) -->
+  <text
+    x="128"
+    y="128"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Cinzel', 'Libre Baskerville', 'Times New Roman', serif"
+    font-size="92"
+    font-weight="600"
+    fill="#334155"
+    letter-spacing="-2"
+  >
+    XD
+  </text>
+
+</svg>

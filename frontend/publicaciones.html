@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mis publicaciones — XDinero">
+    <title>Mis Publicaciones — XDinero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/moviles.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/tablets.css" media="screen and (min-width: 769px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/escritorio.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/grandes.css" media="screen and (min-width: 1440px)">
+</head>
+<body>
+
+    <!--  ENCABEZADO  -->
+    <header class="xd-encabezado">
+        <nav class="xd-nav">
+            <a href="index.html" class="xd-nav-logo">
+                <img src="img/logo.svg" alt="XDinero Logo">
+                <span class="xd-nav-logo-texto">XDinero</span>
+            </a>
+
+            <div class="xd-nav-enlaces">
+                <a href="inicio.html" class="xd-nav-enlace">
+                    <img src="img/inicio.svg" alt="">
+                    <span>Inicio</span>
+                </a>
+                <a href="mercado.html" class="xd-nav-enlace">
+                    <img src="img/grafico.svg" alt="">
+                    <span>Mercado</span>
+                </a>
+                <a href="publicaciones.html" class="xd-nav-enlace activo">
+                    <img src="img/publicaciones.svg" alt="">
+                    <span>Publicaciones</span>
+                </a>
+                <a href="ayuda.html" class="xd-nav-enlace">
+                    <img src="img/ayuda.svg" alt="">
+                    <span>Ayuda</span>
+                </a>
+                <a href="admin.html" class="xd-nav-enlace xd-oculto" id="enlace-admin">
+                    <img src="img/ajustes.svg" alt="">
+                    <span>Admin</span>
+                </a>
+            </div>
+
+            <div class="xd-nav-acciones">
+                <button class="xd-boton-tema" id="boton-tema" title="Cambiar tema">
+                    <img src="img/tema.svg" alt="">
+                </button>
+                <div id="nav-acciones"></div>
+                <button class="xd-boton-menu" id="boton-menu" aria-label="Abrir menú">
+                    <img src="img/menu.svg" alt="Menú">
+                </button>
+            </div>
+        </nav>
+
+        <div class="xd-menu-movil" id="menu-movil">
+            <a href="inicio.html" class="xd-nav-enlace">
+                <img src="img/inicio.svg" alt="">
+                <span>Inicio</span>
+            </a>
+            <a href="mercado.html" class="xd-nav-enlace">
+                <img src="img/grafico.svg" alt="">
+                <span>Mercado</span>
+            </a>
+            <a href="publicaciones.html" class="xd-nav-enlace activo">
+                <img src="img/publicaciones.svg" alt="">
+                <span>Publicaciones</span>
+            </a>
+            <a href="ayuda.html" class="xd-nav-enlace">
+                <img src="img/ayuda.svg" alt="">
+                <span>Ayuda</span>
+            </a>
+            <button class="xd-boton-tema" id="boton-tema-movil" title="Cambiar tema" style="justify-content: flex-start; width: auto; padding: 0.75rem 1rem; border-radius: 0.5rem; gap: 0.5rem;">
+                <img src="img/tema.svg" alt="">
+                <span style="font-size: 0.95rem; font-weight: 500;">Cambiar tema</span>
+            </button>
+            <div id="menu-movil-acciones"></div>
+        </div>
+    </header>
+
+    <!--  CONTENIDO PRINCIPAL  -->
+    <main class="publicaciones-contenedor">
+
+        <div class="publicaciones-cabecera">
+            <h1 class="publicaciones-titulo">Mis Publicaciones</h1>
+            <p class="publicaciones-subtitulo" id="publicaciones-subtitulo"></p>
+        </div>
+
+        <!-- Estado: requiere autenticación -->
+        <div class="xd-tarjeta feed-vacio xd-oculto" id="banner-no-autenticado">
+            <h2 style="margin-bottom: 0.5rem; color: var(--color-texto);">Inicia sesión</h2>
+            <p style="margin-bottom: 1rem;">Necesitas iniciar sesión para ver tus publicaciones.</p>
+            <div class="xd-flex-centro" style="gap: 1rem;">
+                <a href="iniciar-sesion.html" class="xd-boton xd-boton-secundario">Iniciar Sesión</a>
+                <a href="registro.html" class="xd-boton xd-boton-primario">Registrarme</a>
+            </div>
+        </div>
+
+        <!-- Estado: cargando -->
+        <div class="xd-cargando-contenedor" id="publicaciones-cargando">
+            <div class="xd-cargando xd-cargando-grande"></div>
+        </div>
+
+        <!-- Estado: sin publicaciones -->
+        <div class="publicaciones-vacio xd-oculto" id="publicaciones-vacio">
+            <img src="img/publicaciones.svg" alt="" class="publicaciones-vacio-icono">
+            <h2>Aún no tienes publicaciones</h2>
+            <p>¡Comparte tu primera idea con la comunidad!</p>
+            <a href="inicio.html" class="xd-boton xd-boton-primario">Ir al inicio</a>
+        </div>
+
+        <!-- Grid de publicaciones -->
+        <div class="publicaciones-grid xd-oculto" id="publicaciones-grid">
+            <!-- Se genera dinámicamente -->
+        </div>
+
+        <!-- Cargar más -->
+        <div class="publicaciones-cargar-mas xd-oculto" id="contenedor-cargar-mas">
+            <button class="xd-boton xd-boton-secundario" id="btn-cargar-mas">
+                Cargar más publicaciones
+            </button>
+        </div>
+
+    </main>
+
+    <!--  MODAL CONFIRMAR ELIMINAR  -->
+    <div class="xd-modal-overlay xd-oculto" id="modal-eliminar">
+        <div class="xd-modal" role="alertdialog" aria-labelledby="modal-eliminar-titulo" aria-describedby="modal-eliminar-desc">
+            <h3 class="xd-modal-titulo" id="modal-eliminar-titulo">¿Eliminar publicación?</h3>
+            <p class="xd-modal-texto" id="modal-eliminar-desc">Esta acción no se puede deshacer. La publicación será eliminada permanentemente.</p>
+            <div class="xd-modal-acciones">
+                <button class="xd-boton xd-boton-fantasma" id="btn-cancelar-eliminar">Cancelar</button>
+                <button class="xd-boton xd-boton-peligro" id="btn-confirmar-eliminar">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <!--  FOOTER  -->
+    <footer class="xd-footer">
+        <p class="xd-footer-linea"><a href="https://github.com/xscriptor/XDinero" target="_blank" rel="noopener noreferrer">Desarrollo de aplicaciones web 2026</a></p>
+        <p><a href="https://www.github.com/xscriptor" target="_blank" rel="noopener noreferrer">Oscar Preciado (xscriptor)</a></p>
+    </footer>
+
+    <!--  SCRIPTS  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javascript/configuracion.js"></script>
+    <script src="javascript/modelos.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script src="javascript/servicios/ajax/interaccion.js"></script>
+    <script src="javascript/aplicacion.js"></script>
+    <script src="javascript/publicaciones.js"></script>
+</body>
+</html>

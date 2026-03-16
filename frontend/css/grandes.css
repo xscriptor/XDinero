@@ -1,0 +1,24 @@
+/* 
+   GRANDES.CSS — XDinero
+   Estilos específicos para pantallas muy grandes / Ultrawide
+   MinWidth: 1440px
+    */
+
+/* Ajustes para aprovechar pantallas de alta resolución y gran formato */
+
+/* .xd-contenedor {
+    max-width: 1400px;
+} */
+
+
+/**
+Aquí empiezan los estilos de pantalla grande para Mis Publicaciones
+**/
+
+.publicaciones-contenedor {
+    max-width: 1400px;
+}
+
+.publicaciones-grid {
+    grid-template-columns: repeat(4, 1fr);
+}

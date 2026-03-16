@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil de Usuario — XDinero">
+    <title>Perfil — XDinero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <!-- CSS Responsive -->
+    <link rel="stylesheet" href="css/moviles.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/tablets.css" media="screen and (min-width: 769px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/escritorio.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/grandes.css" media="screen and (min-width: 1440px)">
+</head>
+<body>
+
+    <!--  ENCABEZADO  -->
+    <header class="xd-encabezado">
+        <nav class="xd-nav">
+            <a href="index.html" class="xd-nav-logo">
+                <img src="img/logo.svg" alt="XDinero Logo">
+                <span class="xd-nav-logo-texto">XDinero</span>
+            </a>
+
+            <div class="xd-nav-enlaces">
+                <a href="inicio.html" class="xd-nav-enlace">
+                    <img src="img/inicio.svg" alt="Inicio">
+                    <span>Inicio</span>
+                </a>
+                <a href="mercado.html" class="xd-nav-enlace">
+                    <img src="img/grafico.svg" alt="Mercado">
+                    <span>Mercado</span>
+                </a>
+                <a href="publicaciones.html" class="xd-nav-enlace">
+                    <img src="img/publicaciones.svg" alt="Publicaciones">
+                    <span>Publicaciones</span>
+                </a>
+                <a href="ayuda.html" class="xd-nav-enlace">
+                    <img src="img/ayuda.svg" alt="Ayuda">
+                    <span>Ayuda</span>
+                </a>
+                <a href="admin.html" class="xd-nav-enlace xd-oculto" id="enlace-admin">
+                    <img src="img/ajustes.svg" alt="Admin">
+                    <span>Admin</span>
+                </a>
+            </div>
+
+            <div class="xd-nav-acciones">
+                <button class="xd-boton-tema" id="boton-tema" title="Cambiar tema">
+                    <img src="img/tema.svg" alt="Tema">
+                </button>
+                <div id="nav-acciones">
+                    <!-- Se inyecta info de usuario -->
+                </div>
+                <button class="xd-boton-menu" id="boton-menu" aria-label="Abrir menú">
+                    <img src="img/menu.svg" alt="Menú">
+                </button>
+            </div>
+        </nav>
+
+        <div class="xd-menu-movil" id="menu-movil">
+            <a href="inicio.html" class="xd-nav-enlace">
+                <img src="img/inicio.svg" alt="Inicio">
+                <span>Inicio</span>
+            </a>
+            <a href="mercado.html" class="xd-nav-enlace">
+                <img src="img/grafico.svg" alt="Mercado">
+                <span>Mercado</span>
+            </a>
+            <a href="publicaciones.html" class="xd-nav-enlace">
+                <img src="img/publicaciones.svg" alt="Publicaciones">
+                <span>Publicaciones</span>
+            </a>
+            <a href="ayuda.html" class="xd-nav-enlace">
+                <img src="img/ayuda.svg" alt="Ayuda">
+                <span>Ayuda</span>
+            </a>
+            <button class="xd-boton-tema" id="boton-tema-movil" title="Cambiar tema" style="justify-content: flex-start; width: auto; padding: 0.75rem 1rem; border-radius: 0.5rem; gap: 0.5rem;">
+                <img src="img/tema.svg" alt="Tema">
+                <span style="font-size: 0.95rem; font-weight: 500;">Cambiar tema</span>
+            </button>
+            <div id="menu-movil-acciones"></div>
+        </div>
+    </header>
+
+    <!--  CONTENIDO PRINCIPAL  -->
+    <main class="perfil-contenedor">
+        
+        <!-- Estado de Carga Global Perfil -->
+        <div id="perfil-cargando" class="xd-cargando-contenedor">
+            <div class="xd-cargando xd-cargando-grande"></div>
+            <p style="margin-top: 1rem; color: var(--color-texto); opacity: 0.7;">Cargando perfil...</p>
+        </div>
+
+        <!-- Perfil no encontrado -->
+        <div id="perfil-error" class="xd-tarjeta perfil-vacio xd-oculto">
+            <h2 style="color: var(--color-error); margin-bottom: 0.5rem;">Usuario no encontrado</h2>
+            <p>El perfil que buscas no existe o ha sido eliminado.</p>
+            <a href="index.html" class="xd-boton xd-boton-primario" style="margin-top: 1rem; display: inline-block;">Volver al inicio</a>
+        </div>
+
+        <!-- Contenido Real del Perfil -->
+        <div id="perfil-contenido" class="xd-oculto">
+            <!-- CABECERA -->
+            <div class="perfil-cabecera">
+                <img src="img/default-avatar.svg" alt="Avatar" id="perfil-avatar-img" class="perfil-avatar">
+                <h1 class="perfil-nombre" id="perfil-nombre-texto">...</h1>
+                <p class="perfil-username" id="perfil-username-texto">@...</p>
+                <p class="perfil-bio xd-oculto" id="perfil-bio-texto"></p>
+
+                <div class="perfil-stats">
+                    <div class="perfil-stat-item">
+                        <span class="perfil-stat-numero" id="stat-publicaciones">0</span>
+                        <span class="perfil-stat-etiqueta">Publicaciones</span>
+                    </div>
+                    <button class="perfil-stat-item" id="btn-ver-seguidores">
+                        <span class="perfil-stat-numero" id="stat-seguidores">0</span>
+                        <span class="perfil-stat-etiqueta">Seguidores</span>
+                    </button>
+                    <button class="perfil-stat-item" id="btn-ver-seguidos">
+                        <span class="perfil-stat-numero" id="stat-seguidos">0</span>
+                        <span class="perfil-stat-etiqueta">Seguidos</span>
+                    </button>
+                    <button class="perfil-stat-item" id="btn-ver-lista-seguimiento">
+                        <span class="perfil-stat-numero" id="stat-lista-seguimiento">0</span>
+                        <span class="perfil-stat-etiqueta">Seguimiento</span>
+                    </button>
+                </div>
+
+                <div class="perfil-acciones">
+                    <button id="btn-accion-perfil" class="xd-boton xd-boton-primario btn-seguir xd-oculto">
+                        <!-- Texto dinámico: Seguir / Dejar de seguir / Editar Perfil -->
+                    </button>
+                </div>
+            </div>
+
+            <!-- PUBLICACIONES -->
+            <div class="perfil-publicaciones">
+                <h2 class="perfil-seccion-titulo">Publicaciones</h2>
+                
+                <div id="feed-publicaciones" style="display: flex; flex-direction: column; gap: var(--espaciado-lg);">
+                    <!-- Cargando posts... -->
+                    <div class="xd-cargando-contenedor" id="loader-posts">
+                        <div class="xd-cargando"></div>
+                    </div>
+                </div>
+
+                <!-- Botón de cargar más oculto por defecto -->
+                <div style="text-align: center; margin-top: var(--espaciado-xl); padding-bottom: var(--espaciado-xl);" class="xd-oculto" id="contenedor-cargar-mas">
+                    <button class="xd-boton xd-boton-secundario" id="btn-cargar-mas-posts">Cargar más publicaciones</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--  MODAL LISTA DE USUARIOS (Seguidores / Seguidos)  -->
+    <div class="xd-capa-modal xd-oculto" id="modal-usuarios">
+        <div class="xd-modal xd-animar-escala xd-modal-md" style="max-height: 80vh; display: flex; flex-direction: column;">
+            <div class="xd-modal-cabecera">
+                <h3 class="xd-modal-titulo" id="modal-usuarios-titulo">Seguidores</h3>
+                <button class="xd-modal-cerrar" id="btn-cerrar-modal-usuarios">
+                    <img src="img/cerrar.svg" alt="Cerrar">
+                </button>
+            </div>
+            
+            <div class="xd-modal-cuerpo" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; flex-grow: 1;">
+                <!-- Cargando -->
+                <div id="loader-modal-usuarios" class="xd-cargando-contenedor" style="padding: var(--espaciado-xl) 0;">
+                    <div class="xd-cargando"></div>
+                </div>
+                
+                <!-- Lista vacía -->
+                <div id="empty-modal-usuarios" class="xd-oculto" style="padding: var(--espaciado-2xl) var(--espaciado-md); text-align: center; opacity: 0.6;">
+                    Sin usuarios.
+                </div>
+                
+                <!-- Lista de usuarios -->
+                <div id="lista-usuarios" class="modal-lista-contenedor custom-scrollbar">
+                    <!-- Se llena vía JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  MODAL LISTA DE SEGUIMIENTO (Watchlist)  -->
+    <div class="xd-capa-modal xd-oculto" id="modal-lista-seguimiento">
+        <div class="xd-modal xd-animar-escala xd-modal-md" style="max-height: 80vh; display: flex; flex-direction: column;">
+            <div class="xd-modal-cabecera">
+                <h3 class="xd-modal-titulo">Lista de Seguimiento</h3>
+                <button class="xd-modal-cerrar" id="btn-cerrar-modal-seguimiento">
+                    <img src="img/cerrar.svg" alt="Cerrar">
+                </button>
+            </div>
+            
+            <div class="xd-modal-cuerpo" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; flex-grow: 1;">
+                <!-- Cargando -->
+                <div id="loader-modal-seguimiento" class="xd-cargando-contenedor" style="padding: var(--espaciado-xl) 0;">
+                    <div class="xd-cargando"></div>
+                </div>
+                
+                <!-- Lista vacía -->
+                <div id="empty-modal-seguimiento" class="xd-oculto" style="padding: var(--espaciado-2xl) var(--espaciado-md); text-align: center; opacity: 0.6;">
+                    No hay criptomonedas en la lista de seguimiento.
+                </div>
+                
+                <!-- Lista de criptomonedas seguidas -->
+                <div id="lista-seguimiento-contenido" class="modal-lista-contenedor custom-scrollbar" role="list" aria-label="Lista de criptomonedas seguidas">
+                    <!-- Se llena vía JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  MODAL EDITAR PERFIL  -->
+    <div class="xd-capa-modal xd-oculto" id="modal-editar-perfil">
+        <div class="xd-modal xd-animar-escala">
+            <div class="xd-modal-cabecera">
+                <h3 class="xd-modal-titulo">Editar Perfil</h3>
+                <button class="xd-modal-cerrar" id="btn-cerrar-modal-editar">
+                    <img src="img/cerrar.svg" alt="Cerrar">
+                </button>
+            </div>
+            
+            <form class="xd-modal-cuerpo form-editar-perfil" id="form-editar">
+                <div class="form-editar-avatar">
+                    <img src="img/default-avatar.svg" alt="Avatar" id="preview-avatar-editar" class="form-editar-avatar-img">
+                    <label for="input-avatar-editar" class="xd-boton xd-boton-secundario form-editar-avatar-btn" style="cursor: pointer;">
+                        Cambiar foto
+                    </label>
+                    <input type="file" id="input-avatar-editar" class="form-editar-avatar-input" accept="image/jpeg, image/png, image/webp">
+                </div>
+
+                <div class="autenticacion-campo">
+                    <label class="xd-etiqueta" for="edit-nombre-usuario">Nombre de usuario</label>
+                    <input type="text" class="xd-entrada" id="edit-nombre-usuario" placeholder="Tu nombre de usuario" required>
+                </div>
+
+                <div class="autenticacion-campo">
+                    <label class="xd-etiqueta" for="edit-correo">Correo electrónico</label>
+                    <input type="email" class="xd-entrada" id="edit-correo" placeholder="tu@correo.com" required>
+                </div>
+                
+                <div class="autenticacion-campo">
+                    <label class="xd-etiqueta" for="edit-bio">Biografía</label>
+                    <textarea class="xd-entrada" id="edit-bio" rows="3" placeholder="Cuéntanos sobre ti..." maxlength="160"></textarea>
+                    <div style="text-align: right; font-size: 0.8rem; opacity: 0.6; margin-top: 4px;" id="edit-bio-count">0/160</div>
+                </div>
+
+                <div class="autenticacion-campo">
+                    <label class="xd-etiqueta" for="edit-nueva-contrasena">Nueva contraseña <span style="opacity:0.5;">(dejar vacío para no cambiar)</span></label>
+                    <input type="password" class="xd-entrada" id="edit-nueva-contrasena" placeholder="Nueva contraseña" autocomplete="new-password">
+                </div>
+
+                <div class="autenticacion-campo">
+                    <label class="xd-etiqueta" for="edit-contrasena-actual">Contraseña actual <span style="color: var(--color-error);">*</span></label>
+                    <input type="password" class="xd-entrada" id="edit-contrasena-actual" placeholder="Confirma con tu contraseña actual" required autocomplete="current-password">
+                </div>
+                
+                <!-- Progreso compresión (oculto por defecto) -->
+                <div id="indicador-compresion-avatar" class="xd-alerta xd-alerta-info xd-oculto" style="margin-bottom: 0;">
+                    <span class="xd-cargando" style="width: 14px; height: 14px; border-width: 2px;"></span>
+                    <span>Procesando imagen...</span>
+                </div>
+                
+                <div class="xd-modal-pie" style="padding: 0; margin-top: var(--espaciado-md); border: none;">
+                    <button type="button" class="xd-boton xd-boton-fantasma" id="btn-cancelar-editar">Cancelar</button>
+                    <button type="submit" class="xd-boton xd-boton-primario" id="btn-guardar-perfil">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Template para la tarjeta de usuario (modal seguidores) -->
+    <template id="template-usuario-lista">
+        <a href="#" class="usuario-item-lista enlace-perfil">
+            <img src="img/default-avatar.svg" alt="Avatar" class="usuario-item-avatar avatar-lista">
+            <div class="usuario-item-info">
+                <div class="usuario-item-nombre nombre-lista">Nombre Usuario</div>
+                <div class="usuario-item-username username-lista">@usuario</div>
+            </div>
+        </a>
+    </template>
+
+    <!-- Template para la tarjeta de publicación (feed de usuario) -->
+    <template id="template-publicacion">
+        <article class="xd-tarjeta post-tarjeta" data-id="">
+            <div class="post-republicado xd-oculto">
+                <img src="img/republicar.svg" alt="Republicado">
+                <span class="nombre-republicador">Alguien republicó</span>
+            </div>
+            <div class="post-cabecera">
+                <a href="#" class="post-autor enlace-perfil">
+                    <img src="img/default-avatar.svg" alt="" class="xd-avatar post-avatar">
+                    <div class="post-autor-info">
+                        <span class="post-autor-nombre">Nombre Usuario</span>
+                        <span class="post-fecha">Hace X horas</span>
+                    </div>
+                </a>
+                <div class="post-opciones xd-oculto" id="dropdown-post">
+                    <button class="post-btn-opciones" aria-label="Opciones" title="Más opciones">
+                        <img src="img/opciones.svg" alt="...">
+                    </button>
+                    <div class="post-menu">
+                        <button class="post-menu-item peligro btn-eliminar-post">
+                            <img src="img/borrar.svg" alt="Eliminar">
+                            Eliminar Publicación
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-contenido"></div>
+            
+            <div class="post-imagen xd-oculto" id="media-container">
+                <img src="" alt="Imagen adjunta" loading="lazy">
+            </div>
+            
+            <div class="post-acciones">
+                <button class="post-btn-accion accion-comentario btn-comentar" title="Comentar">
+                    <img src="img/comentario.svg" alt="Comentario">
+                    <span class="contador">0</span>
+                </button>
+                <button class="post-btn-accion accion-repost btn-repost" title="Republicar">
+                    <img src="img/republicar.svg" alt="Republicar">
+                    <span class="contador">0</span>
+                </button>
+                <button class="post-btn-accion accion-like btn-like" title="Me gusta">
+                    <img src="img/me-gusta.svg" alt="Me Gusta">
+                    <span class="contador">0</span>
+                </button>
+                <button class="post-btn-accion accion-compartir btn-compartir" title="Copiar enlace">
+                    <img src="img/compartir.svg" alt="Compartir">
+                </button>
+            </div>
+        </article>
+    </template>
+
+    <!--  FOOTER  -->
+    <footer class="xd-footer">
+        <p class="xd-footer-linea"><a href="https://github.com/xscriptor/XDinero" target="_blank" rel="noopener noreferrer">Desarrollo de aplicaciones web 2026</a></p>
+        <p><a href="https://www.github.com/xscriptor" target="_blank" rel="noopener noreferrer">Oscar Preciado (xscriptor)</a></p>
+    </footer>
+
+    <!--  SCRIPTS  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javascript/configuracion.js"></script>
+    <script src="javascript/modelos.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script src="javascript/servicios/utilidades/procesadorImagen.js"></script>
+    <script src="javascript/servicios/ajax/perfil.js"></script>
+    <script src="javascript/servicios/ajax/interaccion.js"></script>
+    <script src="javascript/aplicacion.js"></script>
+    <script src="javascript/perfil.js"></script>
+
+</body>
+</html>

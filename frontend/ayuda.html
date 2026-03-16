@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centro de Ayuda — Preguntas frecuentes y contacto en XDinero">
+    <title>Ayuda — XDinero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/moviles.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/tablets.css" media="screen and (min-width: 769px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/escritorio.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/grandes.css" media="screen and (min-width: 1440px)">
+</head>
+<body>
+
+    <!--  ENCABEZADO  -->
+    <header class="xd-encabezado">
+        <nav class="xd-nav">
+            <a href="index.html" class="xd-nav-logo">
+                <img src="img/logo.svg" alt="XDinero Logo">
+                <span class="xd-nav-logo-texto">XDinero</span>
+            </a>
+
+            <div class="xd-nav-enlaces">
+                <a href="inicio.html" class="xd-nav-enlace">
+                    <img src="img/inicio.svg" alt="Inicio">
+                    <span>Inicio</span>
+                </a>
+                <a href="mercado.html" class="xd-nav-enlace">
+                    <img src="img/grafico.svg" alt="Mercado">
+                    <span>Mercado</span>
+                </a>
+                <a href="publicaciones.html" class="xd-nav-enlace">
+                    <img src="img/publicaciones.svg" alt="Publicaciones">
+                    <span>Publicaciones</span>
+                </a>
+                <a href="ayuda.html" class="xd-nav-enlace activo">
+                    <img src="img/ayuda.svg" alt="Ayuda">
+                    <span>Ayuda</span>
+                </a>
+                <a href="admin.html" class="xd-nav-enlace xd-oculto" id="enlace-admin">
+                    <img src="img/ajustes.svg" alt="Admin">
+                    <span>Admin</span>
+                </a>
+            </div>
+
+            <div class="xd-nav-acciones">
+                <button class="xd-boton-tema" id="boton-tema" title="Cambiar tema">
+                    <img src="img/tema.svg" alt="Tema">
+                </button>
+                <div id="nav-acciones"></div>
+                <button class="xd-boton-menu" id="boton-menu" aria-label="Abrir menú">
+                    <img src="img/menu.svg" alt="Menú">
+                </button>
+            </div>
+        </nav>
+
+        <div class="xd-menu-movil" id="menu-movil">
+            <a href="inicio.html" class="xd-nav-enlace">
+                <img src="img/inicio.svg" alt="Inicio">
+                <span>Inicio</span>
+            </a>
+            <a href="mercado.html" class="xd-nav-enlace">
+                <img src="img/grafico.svg" alt="Mercado">
+                <span>Mercado</span>
+            </a>
+            <a href="publicaciones.html" class="xd-nav-enlace">
+                <img src="img/publicaciones.svg" alt="Publicaciones">
+                <span>Publicaciones</span>
+            </a>
+            <a href="ayuda.html" class="xd-nav-enlace activo">
+                <img src="img/ayuda.svg" alt="Ayuda">
+                <span>Ayuda</span>
+            </a>
+            <button class="xd-boton-tema" id="boton-tema-movil" title="Cambiar tema" style="justify-content: flex-start; width: auto; padding: 0.75rem 1rem; border-radius: 0.5rem; gap: 0.5rem;">
+                <img src="img/tema.svg" alt="Tema">
+                <span style="font-size: 0.95rem; font-weight: 500;">Cambiar tema</span>
+            </button>
+            <div id="menu-movil-acciones"></div>
+        </div>
+    </header>
+
+    <!--  CONTENIDO PRINCIPAL  -->
+    <main class="ayuda-contenedor">
+
+        <!-- Encabezado de la sección -->
+        <header class="ayuda-encabezado">
+            <h1 class="ayuda-titulo">Centro de Ayuda</h1>
+            <p class="ayuda-subtitulo">Encuentra respuestas a las preguntas más frecuentes sobre XDinero</p>
+        </header>
+
+        <!--  PREGUNTAS FRECUENTES  -->
+        <section class="ayuda-preguntas" aria-label="Preguntas Frecuentes" id="lista-preguntas">
+            <!-- Se genera dinámicamente desde ayuda.js -->
+        </section>
+
+        <hr class="ayuda-separador">
+
+        <!--  FORMULARIO DE CONTACTO  -->
+        <section class="xd-tarjeta ayuda-contacto" aria-labelledby="titulo-contacto">
+            <div class="ayuda-contacto-titulo">
+                <h2 id="titulo-contacto">¿No has podido solucionar tu consulta?</h2>
+                <p>Contacta con un administrador</p>
+            </div>
+
+            <!-- Mensaje de éxito (oculto por defecto) -->
+            <div class="ayuda-contacto-exito xd-oculto" id="contacto-exito">
+                <p class="ayuda-contacto-exito-titulo">¡Mensaje enviado correctamente!</p>
+                <p class="ayuda-contacto-exito-detalle">Nos pondremos en contacto contigo pronto.</p>
+                <button type="button" class="xd-boton xd-boton-fantasma" id="btn-otro-mensaje">Enviar otro mensaje</button>
+            </div>
+
+            <!-- Formulario -->
+            <form id="formulario-contacto" novalidate>
+                <div class="ayuda-form-grid">
+                    <div class="ayuda-campo">
+                        <label for="contacto-nombre">Nombre</label>
+                        <input type="text" id="contacto-nombre" name="nombre" class="xd-entrada" placeholder="Tu nombre completo" autocomplete="name">
+                    </div>
+
+                    <div class="ayuda-campo">
+                        <label for="contacto-email">Correo Electrónico</label>
+                        <input type="email" id="contacto-email" name="email" class="xd-entrada" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+                    </div>
+
+                    <div class="ayuda-campo ayuda-campo-completo">
+                        <label for="contacto-asunto">Asunto</label>
+                        <input type="text" id="contacto-asunto" name="asunto" class="xd-entrada" placeholder="Breve descripción de tu consulta">
+                    </div>
+
+                    <div class="ayuda-campo ayuda-campo-completo">
+                        <label for="contacto-mensaje">Mensaje</label>
+                        <textarea id="contacto-mensaje" name="mensaje" class="xd-entrada" rows="5" placeholder="Detalla tu consulta aquí..." style="resize: vertical;"></textarea>
+                    </div>
+                </div>
+
+                <div class="ayuda-form-acciones">
+                    <button type="submit" class="xd-boton xd-boton-primario" id="btn-enviar-contacto">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!--  TOAST  -->
+    <div class="xd-toast-contenedor" id="toast-contenedor"></div>
+
+    <!--  FOOTER  -->
+    <footer class="xd-footer">
+        <p class="xd-footer-linea"><a href="https://github.com/xscriptor/XDinero" target="_blank" rel="noopener noreferrer">Desarrollo de aplicaciones web 2026</a></p>
+        <p><a href="https://www.github.com/xscriptor" target="_blank" rel="noopener noreferrer">Oscar Preciado (xscriptor)</a></p>
+    </footer>
+
+    <!--  SCRIPTS  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="javascript/configuracion.js"></script>
+    <script src="javascript/modelos.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script src="javascript/validaciones.js"></script>
+    <script src="javascript/aplicacion.js"></script>
+    <script src="javascript/ayuda.js"></script>
+</body>
+</html>
