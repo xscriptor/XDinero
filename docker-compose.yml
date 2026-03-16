@@ -1,0 +1,80 @@
+services:
+  # Servicio Único de Frontend/Proxy (Nginx) - Sirve estáticos y hace proxy al backend
+  nginx:
+    image: nginx:alpine
+    container_name: xdinero_nginx
+    ports:
+      - "${PROXY_PORT:-80}:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      # Montar la carpeta del frontend como raíz web de Nginx
+      - ./frontend:/usr/share/nginx/html
+    depends_on:
+      - backend
+      - phpmyadmin
+    networks:
+      - xdinero-net
+    restart: always
+
+  # Servicio Backend (PHP/Apache)
+  backend:
+    build: ./backend
+    container_name: xdinero_backend
+    # En producción real, estos puertos no deberían exponerse públicamente, solo a través del proxy.
+    # Se mantienen mapeados a localhost para facilitar depuración si es necesario.
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-8000}:80"
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_USER=${MYSQL_USER}
+      - DB_PASS=${MYSQL_PASSWORD}
+      - BASE_URL=${NEXT_PUBLIC_BASE_URL}
+    volumes:
+      - ./backend:/var/www/html/backend
+    depends_on:
+      - db
+    networks:
+      - xdinero-net
+    restart: unless-stopped
+
+  # (El servicio frontend de Next.js ha sido eliminado, Nginx sirve los estáticos ahora)
+
+  # Servicio Base de Datos (MySQL)
+  db:
+    image: mysql:8.0
+    container_name: xdinero_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./backend/database.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - xdinero-net
+    restart: always
+
+  # Servicio phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: xdinero_phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - xdinero-net
+    restart: always
+
+networks:
+  xdinero-net:
+    driver: bridge
+
+volumes:
+  db_data:

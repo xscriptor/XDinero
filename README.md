@@ -1,6 +1,6 @@
 <h1 align="center">XDinero</h1>
 <p align="center">
-  XD una red social orientada al ámbito financiero y la generación Z
+  XD una red social orientada al ámbito financiero
 </p>
 
 Este repositorio está destinado a exponer una parte importante del código fuente y documentación del proyecto final de desarrollo de aplicaciones web.
